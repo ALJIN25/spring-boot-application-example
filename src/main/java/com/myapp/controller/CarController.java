@@ -58,4 +58,12 @@ public class CarController {
                 collect(Collectors.toList());
         return CarMapper.makeCarDTOList(cars);
     }
+
+    @GetMapping
+    public List<CarDTO> findBikes()
+            throws ConstraintsViolationException, EntityNotFoundException {
+        List<CarDO> cars = Lists.newArrayList(carService.findAll()).stream().
+                collect(Collectors.toList());
+        return CarMapper.makeCarDTOList(cars);
+    }
 }
